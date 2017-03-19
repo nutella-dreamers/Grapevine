@@ -1,0 +1,29 @@
+
+body{
+  
+  /*height: 200px;*/
+  background-color: #d9edf7;
+  
+}
+
+
+.shadow-text {
+  margin: auto;  
+  top: 0; left: 0; bottom: 0; right: 0;
+  width: 100%;  
+  
+  color: #ded9f7;
+  text-align: center;
+
+  font-size: 10em;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+
+  letter-spacing: -0.02em;
+  line-height: 1.2em;
+}
+
+.carousel-inner {
+
+  height: 300px;
+}
