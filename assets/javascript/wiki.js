@@ -5,11 +5,12 @@
  */
 
 //Google Search Key - AIzaSyByJ2xR0StP_Name6BNMXY2tIUEc82X4eM
-
+// wikipedia id in google search cx = '010171944163159885044:ommzsavsdkm';
 //https://en.wikipedia.org//w/api.php?action=query&format=json&titles=jim+Carey&redirects=1
 /*
 /*
  <script>
+ // for google search
  (function() {
  var cx = '010171944163159885044:ommzsavsdkm';
  var gcse = document.createElement('script');
@@ -23,11 +24,6 @@
  <gcse:search></gcse:search>
  */
 
-
-///w/api.php?action=query&format=json&export=1&exportnowrap=1&titles=API
-
-$(document).ready(function() {
-
     //$.param({'q': 'beyonce knowles'})
     //"q=beyonce%20knowles"
 
@@ -39,16 +35,6 @@ $(document).ready(function() {
      "headers": {
      "cache-control": "no-cache",
      "postman-token": "b6c11dce-ae86-cae6-4184-13f81fb111ae"
-     }
-     }
-     var settings = {
-     "async": true,
-     "crossDomain": true,
-     "url": "https://www.googleapis.com/customsearch/v1?q=bruce%20willis%20wikipedia&key=AIzaSyByJ2xR0StP_Name6BNMXY2tIUEc82X4eM&cx=010171944163159885044%3Aommzsavsdkm&fields=items(link)",
-     "method": "GET",
-     "headers": {
-     "cache-control": "no-cache",
-     "postman-token": "5c1085b0-051d-9a1e-b0e7-470c8ef53d8f"
      }
      }
      */
@@ -92,7 +78,7 @@ $(document).ready(function() {
                     }
                 }
                 else {
-                    $("#errorResponse").html("No Wikipedia found.");
+                    $("#errorResponse").html("No Entry found in Wikipedia.");
                 }
             });
         }
@@ -106,7 +92,7 @@ $(document).ready(function() {
 
     function getWiki(actorName){
         // get input and replace spaces with %20
-        var actorNameModified = actorName.val().replace(/ /g, "%20");
+        var actorNameModified = actorName.replace(/ /g, "%20");
 
         if(actorNameModified) {
 
@@ -126,8 +112,8 @@ $(document).ready(function() {
             $.ajax(settings).done(function (response) {
                 // check if anything was returned
                 if (response.items) {
-                    console.log(response);
-                    console.log(response.items[0].link);
+                   // console.log(response);
+                   // console.log(response.items[0].link);
 
                     var win = window.open(response.items[0].link, '_blank');
 
@@ -149,5 +135,4 @@ $(document).ready(function() {
         {
             return;
         }
-    };
-});
+    }
