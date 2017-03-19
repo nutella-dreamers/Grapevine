@@ -6,7 +6,6 @@
 
 //Google Search Key - AIzaSyByJ2xR0StP_Name6BNMXY2tIUEc82X4eM
 // wikipedia id in google search cx = '010171944163159885044:ommzsavsdkm';
-//https://en.wikipedia.org//w/api.php?action=query&format=json&titles=jim+Carey&redirects=1
 /*
 /*
  <script>
