@@ -4,6 +4,8 @@
 	<title>Grapevine</title>
 	<!--Link to Bootstrap-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 
 
@@ -23,11 +25,98 @@
 
   <!--link to js--> 
   <script type="text/javascript" src="assets/javascript/game.js"></script> 
-
+  <script src="path/to/shine.min.js"></script>
+  <script src="/application/html/js/bigspaceship/shine.js/shine.js"></script>
   
 </head>
-</head>
 <body>
+<br>
+<div class ="container">
+   <div class="jumbotron" style ="background-color:#999;">
+      <h1 class ="text-center" style="color:white;">Grapevine</h1>
+      <h3 class ="text-center" style="color:white;">(add subtitle here)</h3>
 
+				<!-- Trigger/Open The Modal -->
+				<button id="modalBtn">Click to Open Modal</button>
+
+				<!-- The Modal -->
+				<div id="myModal" class="modal">
+
+				  <!-- Modal content -->
+						  <div class="modal-content">
+						    <div class="modal-header">
+						      <span class="close">&times;</span>
+						      <h2>Modal Header</h2>
+						    </div>
+						    <div class="modal-body">
+						      <p>Some text in the Modal Body</p>
+						      <p>Some other text...</p>
+						    </div>
+						    <div class="modal-footer">
+						      <h3>Modal Footer</h3>
+						    </div>
+				  		</div>
+
+					</div> <!--end modal-->
+
+<!-- Add rotating message or image -->
+			<div class="card-container">
+				<div class="card">
+					<div class="front">
+						<h2>Hello</h2>
+					</div>
+					<div class="back">
+						<h2>Goodbye</h2>
+						<!-- <img src="http://static1.visitfinland.com/wp-content/uploads/Header_Linnunlaulu_ruska_autumn.jpg"> -->
+					</div>
+				</div>
+			</div>
+
+		</div> <!--end jumbotron-->
+
+
+<!-- Forms to enter movie title-->
+<div class="panel panel-default">
+  <div class="panel-heading" style ="background-color:#165CAB;">
+    <h3 class="panel-title" style ="color:white;">Enter Movie Title Below</h3>
+  </div>
+ 
+  <div class="panel-body">
+    <form role="form">
+
+<!-- This can be removed easily -->
+<!-- 			<div class="panel-heading" style ="background-color:#165CAB;">
+    	<h3 class="panel-title" style ="color:white;">Enter Movie Title XXX</h3>
+			<div class="form-group">
+				  <label class="control-label" for="focusedInput"></label>
+				  <input class="form-control" id="focusedInput" type="text" value=" ">
+				</div>
+			</div> -->
+
+<!-- Forms - Enter First Movie Title --> 
+		    <div class="form-group">
+		      <label class="control-label" for="inputDefault">Enter First Movie Title</label>
+		      <input type="text" class="form-control" id="inputDefault">
+		    </div>
+
+<!-- Forms - Enter Second Movie Title -->    
+		    <div class="form-group">
+		      <label class="control-label" for="inputDefault">Enter Second Movie Title <span class="glyphicon glyphicon-search"></span></label>
+		      <input type="text" class="form-control" id="inputDefault">
+		    </div>
+    
+<!-- Buttons --> 
+				  <button type="search" class="btn btn-default" style ="background-color:#165CAB;color:white;" id="search"> <span class="glyphicon glyphicon-search"></span> Search</button>
+				  <button type="clear" class="btn btn-default" style ="background-color:#165CAB;color:white;" id="clear"> <span class="glyphicon glyphicon-remove"></span> Clear</button>
+		</form>
+
+	</div>
+
+</div>
+
+</div>
+
+<!-- Javascript -->
+<script src="assets/javascript/app.js"></script>
 </body>
 </html>
