@@ -1,62 +1,141 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Grapevine</title>
+    <title>Grapevine</title>
+    <!--Link to Bootstrap-->
 
-
-	<!--Link to Bootstrap-->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-
-	
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
-	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-
-
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	<!--Link to Bootstrap-->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+    <!--Link to Moment.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+
+    <script src="assets/javascript/awesomplete/awesomplete.js" async></script>
+
+    <link rel="stylesheet" href="assets/javascript/awesomplete/awesomplete.css" />
+
+    <!--link to js-->
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+
+    <script type="text/javascript" src="shine.min.js"></script>
+
+
+
+
+    <head>
+        <meta charset="utf-8">
+        <title>Favorite Movies</title>
+        <style type="text/css">
+            button,
+            div,
+            form,
+            input {
+                margin: 10px;
+            }
+
+            .dropdown {
+
+                position: relative;
+            }
+
+            .actor-pic {
+                width: auto;
+                height: 75px;
+            }
+
+            .media-actors {
+                padding: 10px;
+                width: 100%;
+            }
+
+            .actor-wrapper {
+                border: 1px solid;
+                width: 50%;
+                background-color: cornflowerblue;
+            }
+
+            .actor-wrapper:hover {
+                color: #fff;
+                background-color: #00b3db;
+                border-color: #285e8e;
+                /*set the color you want here*/
+            }
+
+            .modal-title {
+                text-align: center;
+            }
+
+            #goto-wiki {
+                float: left;
+            }
+
+            body {
+                padding: 0;
+
+                background-color: black;
+            }
+
+            #main,
+            .continer-fluid {
+                padding: 0 !important;
+            }
+
+            .carousel-content {
+                position: absolute;
+                bottom: 20%;
+                left: 22%;
+                z-index: 20;
+                color: white;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+            }
+
+
+            .shadow-text {
+                margin: auto;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+
+                color: #ded9f7;
+                text-align: center;
+
+                font-size: 10em;
+                font-family: 'Roboto', sans-serif;
+                font-weight: 800;
+
+                letter-spacing: -0.02em;
+                line-height: 1.2em;
+            }
+
+            .carousel-inner {
+
+                height: 300px;
+            }
+
+            h1 {
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+
+       <div class="container-fluid" id="main">
 	
-
-	<!--Link to CSS-->
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-  	
- 	 <script type="text/javascript" src="assets/javascript/shine.min.js"></script>
-	
-	<!--Link to jq-->
-	 <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
- 
-  
-
-  
-</head>
-
-<body>
-<div class="container-fluid">
-	<div class="container">
-	
-	
-	
-
-
 	<div id="carousel" class="carousel slide" data-ride="carousel">
 
-    <!-- Menu -->
-    		<ol class="carousel-indicators">
-        		<li data-target="#carousel" data-slide-to="0" class="active"></li>
-        		<li data-target="#carousel" data-slide-to="1"></li>
-        		<li data-target="#carousel" data-slide-to="2"></li>
-    		</ol>
-    
-    	<!-- Items -->
     	<div class="carousel-inner">
 
         
         	<div class="item active">
-            	<img src="assets/images/close.jpg" alt="Slide 1" />
+            	<img src="close.jpg" alt="Slide 1" />
         	</div>
 
         	<div class="carousel-content">
@@ -64,199 +143,63 @@
             </div>
 
         	<div class="item">
-            	<img src="assets/images/jurassic-world.jpg" alt="Slide 2" />
+            	<img src="jurassic-world.jpg" alt="Slide 2" />
         	</div>
 
         	<div class="item">
-            	<img src="assets/images/la-la-land.jpg" alt="Slide 3" />
+            	<img src="la-la-land.jpg" alt="Slide 3" />
         	</div>
 
-    	</div> <!--carousel inner-->
-
-   		 	<a href="#carousel" class="left carousel-control" data-slide="prev">
-        		<span class="glyphicon glyphicon-chevron-left"></span>
-    		</a>
-
-   		 	<a href="#carousel" class="right carousel-control" data-slide="next">
-        		<span class="glyphicon glyphicon-chevron-right"></span>
-    		</a>
-	</div>
-		<br>
+    	</div> 
 	
-	<div class="row">
-		<div class="col-lg-4"></div>
-  		<div class="col-lg-4">
-  		<h3>Movie One</h3>
-    		<div class="input-group">
-    			<input type="text" class="form-control" placeholder="Search for..." autofocus="">
-      			<span class="input-group-btn">
-        			<button class="btn btn-default" type="button">
-        				<span class="glyphicon glyphicon-search"></span>
-        			</button>
-      			</span>      			
-    		</div><!-- /input-group -->
-  		</div> <!--col-lg-4 -->
-  		<div class="col-lg-4"></div>
-  	</div>
-  	
-  	<div class="row">	
-  		<div class="col-lg-4"></div>
-  		<div class="col-lg-4">
-  		<h3>Movie Two</h3>
-    		<div class="input-group">
-      			<input type="text" class="form-control" placeholder="Search for..." autofocus="">
-      			<span class="input-group-btn">
-        			<button class="btn btn-default" type="button">
-        				<span class="glyphicon glyphicon-search"></span>
-        			</button>
-      			</span>
-    		</div><!-- /input-group -->
-  		</div><!--col-lg-4 -->
-  		<div class="col-lg-4"></div>
-	</div><!-- /.row -->
-</div><!-- container-->
+				      <input type="text" id="movie-1-input" style = "width:500px"> <br>
 
+      				  <input type="text" id="movie-2-input" style = "width:500px"> <br>
 
-	
-</div>
-	
-	
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
- <!--link to js--> 
-  <script type="text/javascript" src="assets/javascript/game.js"></script> 
+      				  <button id = "submitButton">Submit</button>
 
-  <!-- Firebase Reference -->
-  <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+                <!--  <button id="testButton">Test Button</button> -->
+                <div id="response">
 
-  <!--link to js--> 
-  <script type="text/javascript" src="assets/javascript/game.js"></script> 
-  <script src="path/to/shine.min.js"></script>
-  <script src="/application/html/js/bigspaceship/shine.js/shine.js"></script>
-  
+                </div>
 
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
 
-<head>
-  <meta charset="utf-8">
-  <title>Favorite Movies</title>
-  <style type="text/css">
-    button,
-    div,
-    form,
-    input {
-      margin: 10px;
-    }
-  </style>
-</head>
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">BIOGRAPHY</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p class="bio"></p>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <div id="dob"></div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div id="birth-place"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class=" btn btndefault" id="goto-wiki"></button>
+                                <button type="button" class=" btn btndefault" id="homepage"></button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
 
 
 
-<body>
-<br>
-<div class ="container">
-   <div class="jumbotron" style ="background-color:#999;">
-      <h1 class ="text-center" style="color:white;">Grapevine</h1>
-      <h3 class ="text-center" style="color:white;">(add subtitle here)</h3>
-
-				<!-- Trigger/Open The Modal -->
-				<button id="modalBtn">Click to Open Modal</button>
-
-				<!-- The Modal -->
-				<div id="myModal" class="modal">
-
-				  <!-- Modal content -->
-						  <div class="modal-content">
-						    <div class="modal-header">
-						      <span class="close">&times;</span>
-						      <h2>Modal Header</h2>
-						    </div>
-						    <div class="modal-body">
-						      <p>Some text in the Modal Body</p>
-						      <p>Some other text...</p>
-						    </div>
-						    <div class="modal-footer">
-						      <h3>Modal Footer</h3>
-						    </div>
-				  		</div>
-
-					</div> <!--end modal-->
-
-<!-- Add rotating message or image -->
-			<div class="card-container">
-				<div class="card">
-					<div class="front">
-						<h2>Hello</h2>
-					</div>
-					<div class="back">
-						<h2>Goodbye</h2>
-						<!-- <img src="http://static1.visitfinland.com/wp-content/uploads/Header_Linnunlaulu_ruska_autumn.jpg"> -->
-					</div>
-				</div>
-			</div>
-
-		</div> <!--end jumbotron-->
 
 
-<!-- Forms to enter movie title-->
-<div class="panel panel-default">
-  <div class="panel-heading" style ="background-color:#165CAB;">
-    <h3 class="panel-title" style ="color:white;">Enter Movie Title Below</h3>
-  </div>
- 
-  <div class="panel-body">
-    <form role="form">
+            </div>
 
-<!-- This can be removed easily -->
-<!-- 			<div class="panel-heading" style ="background-color:#165CAB;">
-    	<h3 class="panel-title" style ="color:white;">Enter Movie Title XXX</h3>
-			<div class="form-group">
-				  <label class="control-label" for="focusedInput"></label>
-				  <input class="form-control" id="focusedInput" type="text" value=" ">
-				</div>
-			</div> -->
+    </body>
 
-<!-- Forms - Enter First Movie Title --> 
-		    <div class="form-group">
-		      <label class="control-label" for="inputDefault">Enter First Movie Title</label>
-		      <input type="text" class="form-control" id="inputDefault">
-		    </div>
-
-<!-- Forms - Enter Second Movie Title -->    
-		    <div class="form-group">
-		      <label class="control-label" for="inputDefault">Enter Second Movie Title <span class="glyphicon glyphicon-search"></span></label>
-		      <input type="text" class="form-control" id="inputDefault">
-		    </div>
-    
-<!-- Buttons --> 
-				  <button type="search" class="btn btn-default" style ="background-color:#165CAB;color:white;" id="search"> <span class="glyphicon glyphicon-search"></span> Search</button>
-				  <button type="clear" class="btn btn-default" style ="background-color:#165CAB;color:white;" id="clear"> <span class="glyphicon glyphicon-remove"></span> Clear</button>
-		</form>
-
-	</div>
-
-</div>
-
-</div>
-
-<!-- Javascript -->
-<script src="assets/javascript/app.js"></script>
-
-  <div class="container">
-    <h1>Movie Search</h1>
-
-
-      <input type="text" id="movie-1-input"><br>
-
-      <input type="text" id="movie-2-input"><br>
-
-      <button id = "submitButton">Submit Button!</button>
-
-
-
-</body>
 </html>
-
-
-
-
-
-
