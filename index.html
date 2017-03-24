@@ -6,14 +6,16 @@
     <!--Link to Bootstrap-->
 
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
+    <script type="text/javascript" src="shine.min.js"></script>
 
-    <!--Link to Moment.js-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+   
 
     <script src="assets/javascript/awesomplete/awesomplete.js" async></script>
 
@@ -22,7 +24,6 @@
     <!--link to js-->
     <script type="text/javascript" src="assets/javascript/game.js"></script>
 
-    <script type="text/javascript" src="shine.min.js"></script>
 
 
 
@@ -31,10 +32,30 @@
         <meta charset="utf-8">
         <title>Favorite Movies</title>
         <style type="text/css">
-            button,
+            /*button,
             div,
             form,
             input {
+                margin: 10px;
+            }*/
+
+            .container {
+                text-align: center;
+            }
+
+            #response {
+                text-align: center;
+            }
+
+            #submitButton {
+                margin: 10px;
+            }
+
+            #movie-2-input {
+                margin: 10px;
+            }
+            #movie-1-input {
+                
                 margin: 10px;
             }
 
@@ -55,7 +76,7 @@
 
             .actor-wrapper {
                 border: 1px solid;
-                width: 50%;
+                width: 100%;
                 background-color: cornflowerblue;
             }
 
@@ -70,28 +91,53 @@
                 text-align: center;
             }
 
-            #goto-wiki {
+            .modal-link-btn {
+                background-color: #b8afd5;
+            }
+            .modal-link-btn:hover{
+                background-color: #8907ED;
+                color: #fff;
+            }
+
+            .modal-title {
+                text-align: center;
+            }
+
+            .modal-body, .modal-hd-bg{
+                background-color: #d9e0e8;
+            }
+            #goto-wiki, #homepage {
                 float: left;
+            }
+
+            .bio-pic{
+                width:auto;
+                height: 150px;
             }
 
             body {
                 padding: 0;
 
                 background-color: black;
+
+
             }
 
             #main,
             .continer-fluid {
                 padding: 0 !important;
+                background-color: black;
+                
             }
 
             .carousel-content {
                 position: absolute;
                 bottom: 20%;
-                left: 22%;
+                left: 25%;
                 z-index: 20;
                 color: white;
                 text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+                text-align: center;
             }
 
 
@@ -129,9 +175,9 @@
 
        <div class="container-fluid" id="main">
 	
-	<div id="carousel" class="carousel slide" data-ride="carousel">
+	       <div id="carousel" class="carousel slide" data-ride="carousel">
 
-    	<div class="carousel-inner">
+    	       <div class="carousel-inner">
 
         
         	<div class="item active">
@@ -150,56 +196,95 @@
             	<img src="la-la-land.jpg" alt="Slide 3" />
         	</div>
 
-    	</div> 
-	
-				      <input type="text" id="movie-1-input" style = "width:500px"> <br>
+    	   </div> 
+	   </div>
+            <div class="container">
 
-      				  <input type="text" id="movie-2-input" style = "width:500px"> <br>
+            <br>
+            <br>
+    <div class = "col-lg-3"></div>
+    <div class = "col-lg-6">
+    <div class = "panel" style = "background-color: #1b1b1c; padding-top: 10px">
+				     <div class="form-group">
+    
+    <input type="email" class="form-control" id="movie-1-input" placeholder="First Selection..." style = "width:500px">
+  </div>
 
-      				  <button id = "submitButton">Submit</button>
+    <div class="form-group">
+     <input type="email" class="form-control" id="movie-2-input" placeholder="Second Selection..." style = "width:500px">
+  </div>
 
+      				  <button type="button" class="btn btn-success" id="submitButton" style="width: 100px">Go!</button>
+</div>
+            </div>
+            </div>
                 <!--  <button id="testButton">Test Button</button> -->
-                <div id="response">
+                
+                <div class = "row" >
+                <div class = "col-lg-4"></div>
+                <div class="col-lg-4" id="response" >
+                </div>    
 
                 </div>
 
-                <!-- Modal -->
-                <div id="myModal" class="modal fade" role="dialog">
-                    <div class="modal-dialog">
+                <br>
+                <br>
+                <br>
 
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">BIOGRAPHY</h4>
-                            </div>
-                            <div class="modal-body">
-                                <p class="bio"></p>
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <div id="dob"></div>
+
+            
+                <!-- Modal -->
+                <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header modal-hd-bg">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">BIOGRAPHY</h4>
+                        </div>
+                        <div class="modal-body">
+                            <!--<p class="bio"></p>-->
+                            <div class="media">
+                                <div class="media-body white-color">
+                                    <div class="media-left bio-pic-area" style="float:left">
+                                        <!--<img src="assets/images/profilepic.jpg" class="media-object bio-pic" style="width:153px">-->
                                     </div>
-                                    <div class="col-xs-6">
-                                        <div id="birth-place"></div>
-                                    </div>
+                                    <p class="bio"></p>
+                                </div>
+                            </div> <!--END .media-->
+
+
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div id="dob" style="margin:5px 0 5px 0"></div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div id="birth-place" style="margin:5px 0 5px 0"></div>
                                 </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class=" btn btndefault" id="goto-wiki"></button>
-                                <button type="button" class=" btn btndefault" id="homepage"></button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
                         </div>
-
+                        <div class="modal-footer">
+                            <a type="button" class=" btn btn-default modal-link-btn" id="goto-wiki" target="_blank"></a>
+                            <a type="button" class=" btn btn-default modal-link-btn" id="homepage" target="_blank"></a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
+
                 </div>
-
-
-
-
-
             </div>
 
+
+        </div>
+
+   
+    
+
+
+    <div class="footer" style="text-align: center;position:fixed;background-color: #999;width: 100%;margin: auto;padding:10px;color:white;bottom: 0px;border-top:7px solid #4aaaa5;z-index: 1;">&copy; Copyright 2017 Grapevine Project</div>
+            
+        
     </body>
 
 </html>

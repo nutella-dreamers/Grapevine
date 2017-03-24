@@ -28,7 +28,8 @@ var mediaType1;
 
 var mediaType2;
 
-
+var myLength1;
+var myLength2;
 
 
 $(function() {
@@ -50,13 +51,18 @@ $(function() {
     var awesomplete2 = new Awesomplete(input2);
 
     $("#movie-1-input").keyup(function(event) {
-        if (event.keyCode == 13) {
+
+
+        if (event.keyCode === 13 && $("#movie-2-input").val()) {
             $("#submitButton").click();
         }
     });
 
     $("#movie-1-input").keyup(function(event) {
-        if (event.keyCode) {
+
+
+
+        if (event.keyCode > 40) {
 
             if (($("#movie-1-input").val()).length > 3) {
 
@@ -67,13 +73,13 @@ $(function() {
     });
 
     $("#movie-2-input").keyup(function(event) {
-        if (event.keyCode == 13) {
+        if (event.keyCode === 13 && $("#movie-2-input").val()) {
             $("#submitButton").click();
         }
     });
 
     $("#movie-2-input").keyup(function(event) {
-        if (event.keyCode) {
+        if (event.keyCode > 40) {
 
             if (($("#movie-2-input").val()).length > 3) {
 
@@ -612,7 +618,8 @@ $(function() {
 
 
     // When actor is clicked, get the actors information and display modal
-    function displayModal(searchId) {
+      function displayModal(searchId) {
+        $(".bio-pic-area").empty();
         $('#myModal').modal('show');
 
         var queryUrl = "https://api.themoviedb.org/3/person/" + searchId + "?api_key=f1cae2ff0d4dc888acf52ab3335afd83&language=en-US";
@@ -626,13 +633,21 @@ $(function() {
 
             $(".modal-title").text(response.name + "'s Biography");
 
+            path = response.profile_path;
+            var imageUrl = "https://image.tmdb.org/t/p/w500" + path;
+            $('<img>')
+                .addClass("media-object bio-pic")
+                .attr("src", imageUrl)
+                .appendTo(".bio-pic-area");
+
+
             if (response.biography) {
                 json_data = JSON.stringify(response.biography);
-                $(".modal-body > .bio")
+                $(".media-body > .bio")
                     .text(json_data)
                     .show();
             } else {
-                $(".modal-body > .bio").text("Sorry, no biography to display.");
+                $(".media-body > .bio").text("Sorry, actor doesn't have a TMDB Bio.");
             }
 
 
@@ -656,29 +671,20 @@ $(function() {
                 $("#birth-place").hide();
             }
 
+            $("#homepage").empty();
             if (response.homepage) {
                 json_data = JSON.stringify(response.homepage);
                 $("#homepage")
-                    .text("Go to " + response.name + "'s homepage")
-                    .show()
-                    .on('click', function(event) {
-                        event.preventDefault();
-                        document.location = response.homepage;
-                        var win = window.open(response.homepage, '_blank');
-                        if (win) {
-                            //Browser has allowed it to be opened
-                            win.focus();
-                        } else {
-                            //Browser has blocked it
-                            alert('Please allow popups for this website');
-                        }
-                    });
+                    .text(response.name + "'s Homepage")
+                    .attr("href", response.homepage)
+                    .show();
             } else { // hide the button
                 $("#homepage").hide();
             }
 
             $("#goto-wiki")
-                .html("Go to " + response.name + "'s Wikipedia Page")
+                .html(response.name + "'s Wikipedia Page")
+                .unbind( "click" )
                 .on('click', function(event) {
                     event.preventDefault();
                     getWiki(response.name);
@@ -686,6 +692,7 @@ $(function() {
 
         });
     }
+
 
 
 
@@ -701,7 +708,7 @@ function update() {
         var radiusX = window.innerWidth * 0.5;
         var radiusY = window.innerHeight * 0.5;
         shine.light.position.x = radiusX + radiusX * Math.cos(phase);
-        shine.light.position.y = radiusY + radiusY * Math.sin(phase * 0.7);
+        shine.light.position.y = radiusY + radiusY * Math.sin(phase * 0.1);
         shine.draw();
       }
 
