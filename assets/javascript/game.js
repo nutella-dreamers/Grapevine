@@ -413,6 +413,8 @@ $(function() {
         for (var i = 0; i < matches.length; i++) {
 
             var hitSpot = actors1.indexOf(matches[i]);
+            
+            $("#response").html('<div id="response"></div>'); 
 
             matchesPics.push(actors1pic[hitSpot]);
 
