@@ -138,8 +138,6 @@ $(function() {
             var mediaSubmatch2 = Mediamatch2[1];
         }
 
-        console.log(("The media type of the first thing is: " + mediaSubmatch1 + " and the media type of the second thing is " + mediaSubmatch2));
-
 
         $("#movie-1-input").val(Dmovie1.replace(/ *\([^)]*\) */g, "").replace(/ *\[[^\]]*]/, ''));
         $("#movie-2-input").val(Dmovie2.replace(/ *\([^)]*\) */g, "").replace(/ *\[[^\]]*]/, ''));
@@ -151,8 +149,8 @@ $(function() {
         var movie1 = $("#movie-1-input").val();
         var movie2 = $("#movie-2-input").val();
 
-        console.log(movie1);
-        console.log(movie2);
+        // console.log(movie1);
+        // console.log(movie2);
 
         var movieRequest = "";
 
@@ -173,8 +171,8 @@ $(function() {
             method: "GET"
         }).done(function(response) {
 
-            console.log(response);
-            console.log(response.results[0].title);
+            // console.log(response);
+            // console.log(response.results[0].title);
 
 
             movieID1 = (response.results[0].id);
@@ -187,7 +185,7 @@ $(function() {
                 url: movieRequest1,
                 method: "GET"
             }).done(function(response) {
-                console.log(response);
+                // console.log(response);
 
                 actors1 = [];
 
@@ -203,7 +201,7 @@ $(function() {
 
 
 
-                console.log(actors1);
+                // console.log(actors1);
 
 
                 getMatch(actors1, actors2);
@@ -221,8 +219,8 @@ $(function() {
             method: "GET"
         }).done(function(response) {
 
-            console.log(response.results[0].title);
-            console.log(response);
+            // console.log(response.results[0].title);
+            // console.log(response);
 
 
 
@@ -236,7 +234,7 @@ $(function() {
                 url: movieRequest2,
                 method: "GET"
             }).done(function(response) {
-                console.log(response);
+                // console.log(response);
 
                 actors2 = [];
 
@@ -252,7 +250,7 @@ $(function() {
 
 
 
-                console.log(actors2);
+                // console.log(actors2);
 
 
                 getMatch(actors1, actors2);
@@ -272,8 +270,8 @@ $(function() {
         }).done(function(response) {
 
 
-            console.log("our first tv show is " + response.results[0].name);
-            console.log(response.results[0].id)
+            // console.log("our first tv show is " + response.results[0].name);
+            // console.log(response.results[0].id)
 
 
             TVID1 = (response.results[0].id);
@@ -286,7 +284,7 @@ $(function() {
                 url: TVRequest1,
                 method: "GET"
             }).done(function(response) {
-                console.log(response);
+                // console.log(response);
 
 
                 actors1 = [];
@@ -303,7 +301,7 @@ $(function() {
 
 
 
-                console.log(actors1);
+                // console.log(actors1);
 
 
                 getMatch(actors1, actors2);
@@ -321,8 +319,8 @@ $(function() {
         }).done(function(response) {
 
 
-            console.log(response.results[0].name);
-            console.log(response.results[0].id)
+            // console.log(response.results[0].name);
+            // console.log(response.results[0].id)
 
 
             TVID2 = (response.results[0].id);
@@ -335,7 +333,7 @@ $(function() {
                 url: TVRequest2,
                 method: "GET"
             }).done(function(response) {
-                console.log(response);
+                // console.log(response);
 
 
                 actors2 = [];
@@ -352,7 +350,7 @@ $(function() {
 
 
 
-                console.log(actors2);
+                // console.log(actors2);
 
 
                 getMatch(actors1, actors2);
@@ -380,7 +378,7 @@ $(function() {
         }
 
 
-        console.log(matches)
+        // console.log(matches)
         for (var i = 0; i < matches.length; i++) {
 
             var hitSpot = actors1.indexOf(matches[i]);
@@ -406,15 +404,17 @@ $(function() {
         }
 
 
-        console.log(matches)
+        // console.log(matches)
 
         newActorArray = [];
+
+        $("#response").html('<div id="response"></div>'); 
 
         for (var i = 0; i < matches.length; i++) {
 
             var hitSpot = actors1.indexOf(matches[i]);
             
-            $("#response").html('<div id="response"></div>'); 
+  
 
             matchesPics.push(actors1pic[hitSpot]);
 
@@ -427,9 +427,9 @@ $(function() {
                 profile_path: actors1pic[hitSpot]
             })
 
-            console.log(matches);
-            console.log(matchesIDs);
-            console.log(matchesPics);
+            // console.log(matches);
+            // console.log(matchesIDs);
+            // console.log(matchesPics);
 
             makeButtons();
 
@@ -445,7 +445,7 @@ $(function() {
 
 
 
-        console.log("searching");
+        // console.log("searching");
 
         //var parameter1 = $('#movie-1-input').val() ;
 
@@ -458,7 +458,7 @@ $(function() {
             method: "GET"
         }).done(function(response) {
 
-            console.log(response);
+            // console.log(response);
 
             autofillData = [];
 
@@ -468,8 +468,8 @@ $(function() {
 
                     if (response.results[i].media_type === "tv" && response.results[i].poster_path) {
 
-                        console.log(response.results[i].id + " : " + response.results[i].name + " : " + response.results[i].first_air_date + " : " + response.results[i].media_type +
-                            " : " + response.results[i].poster_path);
+                        // console.log(response.results[i].id + " : " + response.results[i].name + " : " + response.results[i].first_air_date + " : " + response.results[i].media_type +
+                        //     " : " + response.results[i].poster_path);
 
                         autofillData.push(response.results[i].name + " (" + response.results[i].first_air_date + ")" +
                             " [" + response.results[i].media_type + "]");
@@ -478,8 +478,8 @@ $(function() {
 
                     } else if (response.results[i].media_type && response.results[i].media_type === "movie" && response.results[i].poster_path) {
 
-                        console.log(response.results[i].id + " : " + response.results[i].title + " : " + response.results[i].release_date + " : " + response.results[i].media_type +
-                            " : " + response.results[i].poster_path);
+                        // console.log(response.results[i].id + " : " + response.results[i].title + " : " + response.results[i].release_date + " : " + response.results[i].media_type +
+                        //     " : " + response.results[i].poster_path);
 
                         autofillData.push(response.results[i].title + " (" + response.results[i].release_date + ")" + " [" + response.results[i].media_type + "]");
                     }
@@ -490,7 +490,7 @@ $(function() {
 
 
 
-            console.log(autofillData);
+            // console.log(autofillData);
 
 
 
